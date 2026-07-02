@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Story Circle — Storytime Stars{% endblock %}
+{% block content %}
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">✨📖</span> Storytime Stars</div>
+  <div class="topbar-actions">
+    <span class="pill" id="studentName">🌙 Student</span>
+    <button class="btn btn-ghost btn-sm" onclick="logout()">Log Out</button>
+  </div>
+</div>
+
+<div class="dash">
+  <div class="dash-header">
+    <h1>Pick a story to read</h1>
+    <p>Tap a story card to open the book. It'll read itself out loud while you follow along!</p>
+  </div>
+
+  <div class="story-grid" id="storyGrid"></div>
+  <div class="empty-state" id="emptyState" style="display:none;">
+    <span class="emoji">🌟</span>
+    No stories are ready yet. Check back soon!
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="book">
+    <button class="close-btn" id="closeModal">✕</button>
+    <div class="book-page left">
+      <h2 class="book-title" id="modalTitle"></h2>
+      <div class="book-author" id="modalAuthor"></div>
+      <div class="book-text" id="modalText">Loading story...</div>
+    </div>
+    <div class="book-page right">
+      <div class="play-button" id="playButton">▶</div>
+      <p style="color: var(--ink-soft); font-size: 0.9rem;">Listen along</p>
+      <audio id="modalAudio" controls></audio>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/student.js') }}"></script>
+{% endblock %}

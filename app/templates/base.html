@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Storytime Stars{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="starfield" id="starfield"></div>
+<div class="page">
+  {% block content %}{% endblock %}
+</div>
+<div class="toast-stack" id="toastStack"></div>
+
+<script>
+  window.API_ENDPOINT = "{{ api_endpoint }}";
+</script>
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+<script>
+  // Sprinkle a little starfield across the night sky background.
+  (function () {
+    const field = document.getElementById('starfield');
+    const count = window.innerWidth < 600 ? 40 : 90;
+    for (let i = 0; i < count; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.animationDelay = (Math.random() * 3) + 's';
+      field.appendChild(star);
+    }
+  })();
+</script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

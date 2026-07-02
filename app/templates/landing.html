@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Storytime Stars — Kids Storytelling App{% endblock %}
+{% block content %}
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">✨📖</span> Storytime Stars</div>
+</div>
+
+<div class="hero">
+  <h1 class="hero-title">Stories that <span class="highlight">come alive</span><br>and read themselves out loud</h1>
+  <p class="hero-subtitle">Teachers write the story. Storytime Stars gives it a voice. Kids press play and listen along under the stars.</p>
+
+  <div class="portals">
+    <div class="portal">
+      <div class="portal-icon">🍎</div>
+      <h2>I'm a Teacher</h2>
+      <p>Upload or paste a story and we'll turn it into a read-aloud in minutes.</p>
+      <div class="portal-actions">
+        <a class="btn btn-gold" href="/login/teacher">Log In</a>
+        <a class="btn btn-ghost" href="/signup/teacher">Sign Up</a>
+      </div>
+    </div>
+
+    <div class="portal">
+      <div class="portal-icon">🌙</div>
+      <h2>I'm a Student</h2>
+      <p>Pick a story, tap play, and listen while you follow along with the words.</p>
+      <div class="portal-actions">
+        <a class="btn btn-coral" href="/login/student">Log In</a>
+        <a class="btn btn-ghost" href="/signup/student">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
